@@ -1,0 +1,6 @@
+#!/bin/bash
+# Script for testing if the results are the same for both the Halide and C implementations
+g++ testing.cpp -g -I ./include -L ./bin -lHalide -lpthread -ldl -o testing -std=c++11
+LD_LIBRARY_PATH=./bin ./testing 15 2 2
+echo "Finished."
+

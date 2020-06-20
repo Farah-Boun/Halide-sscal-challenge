@@ -1,0 +1,11 @@
+#!/bin/bash
+# Script for testing both Halide and C sscal implementations
+echo "Compiling..."
+g++ main.cpp -g -I ./include -L ./bin -lHalide -lpthread -ldl -o main -std=c++11
+echo "Running tests:"
+LD_LIBRARY_PATH=./bin ./main 1000 2 1
+LD_LIBRARY_PATH=./bin ./main 10000 2 3
+LD_LIBRARY_PATH=./bin ./main 500000 2 3
+LD_LIBRARY_PATH=./bin ./main 1000000 2 5
+echo "Finished."
+
